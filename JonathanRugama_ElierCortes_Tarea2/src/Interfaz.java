@@ -57,14 +57,18 @@ public class Interfaz extends JFrame {
 	private JButton btnIngresar;
 	private JButton btnSalir;
 	private JMenuBar menuBar;
-	private JTextField txtActualizar;
-	private JTextField txtEliminar;
+	private JTextField txtActualizarCliente;
+	private JTextField txtEliminarCliente;
 	public FrameTransaccion frameIngresarT;
 	public FrameTransaccion frameActualizarT;
 	public FrameATrans frameTA;
 	public FrameTarjeta frameIngresarTarj;
 	public FrameATarj frameTarjA;
 	private Timer timer;
+	private JTextField txtActualizarTrans;
+	private JTextField txtEliminar;
+	private JTextField txtActualizar;
+	private JTextField txtEliminarTarj;
 	
 
 
@@ -76,7 +80,7 @@ public class Interfaz extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		setBounds(100, 100, 600, 513);
+		setBounds(100, 100, 950, 608);
 		setLocationRelativeTo(null);
 		setResizable(false);
 
@@ -102,162 +106,8 @@ public class Interfaz extends JFrame {
 		});
 		mnACercaDe.add(mntmAutores);
 		
-		JMenu mnIngresar = new JMenu("Ingresar");
-		menuBar.add(mnIngresar);
-		
-		JMenuItem mntmTransaccion = new JMenuItem("Transacci\u00F3n");
-		mntmTransaccion.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-			 frameIngresarT = new FrameTransaccion("INGRESAR TRANSACCION", "Ingresar", false);
-			 frameIngresarT.setVisible(true);
-			}
-		});
-		mnIngresar.add(mntmTransaccion);
-		
-		JMenuItem mntmTarjeta = new JMenuItem("Tarjeta");
-		mntmTarjeta.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				frameIngresarTarj = new FrameTarjeta ("INGRESAR TARJETA", "Ingresar");
-				frameIngresarTarj.setVisible(true);
-				
-			}
-		});
-		mnIngresar.add(mntmTarjeta);
-		
-		JMenu mnActualizar = new JMenu("Actualizar");
-		menuBar.add(mnActualizar);
-		
-		JMenuItem mntmATransaccion = new JMenuItem("Transacci\u00F3n");
-		mntmATransaccion.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				 frameTA = new FrameATrans();
-				
-				frameTA.setVisible(true);
-			}
-		});
-		mnActualizar.add(mntmATransaccion);
-		
-		JMenuItem mntmATarjeta = new JMenuItem("Tarjeta");
-		mntmATarjeta.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				 frameTarjA= new FrameATarj();
-				frameTarjA.setVisible(true);
-			}
-		});
-		mnActualizar.add(mntmATarjeta);
-		
-		JMenu mnEliminar = new JMenu("Eliminar");
-		menuBar.add(mnEliminar);
-		
-		JMenuItem mntmETransaccion = new JMenuItem("Transacci\u00F3n");
-		mnEliminar.add(mntmETransaccion);
-		
-		JMenuItem mntmETrajeta = new JMenuItem("Tarjeta");
-		mnEliminar.add(mntmETrajeta);
-	
-		
-		JLabel lblNombre = new JLabel("Nombre: ");
-		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNombre.setBounds(30, 84, 61, 14);
-		contentPane.add(lblNombre);
-		
-		JLabel lblCedula = new JLabel("C\u00E9dula:");
-		lblCedula.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblCedula.setBounds(30, 51, 46, 14);
-		contentPane.add(lblCedula);
-		
-		JLabel lblApellido1 = new JLabel("Primer apellido:");
-		lblApellido1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblApellido1.setBounds(30, 109, 82, 14);
-		contentPane.add(lblApellido1);
-		
-		JLabel lblApellido2 = new JLabel("Segundo apellido:");
-		lblApellido2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblApellido2.setBounds(30, 134, 110, 14);
-		contentPane.add(lblApellido2);
-		
-		JLabel lblDireccion = new JLabel("Direcci\u00F3n:");
-		lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblDireccion.setBounds(30, 170, 110, 14);
-		contentPane.add(lblDireccion);
-		
-		JLabel lblTelefono = new JLabel("Tel\u00E9fono:");
-		lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblTelefono.setBounds(30, 243, 82, 14);
-		contentPane.add(lblTelefono);
-		
-		JLabel lblFechaNacimiento = new JLabel("Fecha de nacimiento:");
-		lblFechaNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblFechaNacimiento.setBounds(30, 286, 125, 14);
-		contentPane.add(lblFechaNacimiento);
-		
-		txtCedula = new JTextField();
-		txtCedula.setToolTipText("Ingresa el n\u00FAmero de c\u00E9dula del cliente");
-		txtCedula.setBounds(86, 49, 86, 20);
-		contentPane.add(txtCedula);
-		txtCedula.setColumns(10);
-		
-		txtNombre = new JTextField();
-		txtNombre.setToolTipText("Nombre completo del cliente");
-		txtNombre.setBounds(86, 78, 86, 20);
-		contentPane.add(txtNombre);
-		txtNombre.setColumns(10);
-		
-		txtApellido1 = new JTextField();
-		txtApellido1.setToolTipText("Primer apellido del cliente");
-		txtApellido1.setBounds(138, 107, 86, 20);
-		contentPane.add(txtApellido1);
-		txtApellido1.setColumns(10);
-		
-		txtApellido2 = new JTextField();
-		txtApellido2.setToolTipText("Segundo apellido del cliente");
-		txtApellido2.setBounds(138, 132, 86, 20);
-		contentPane.add(txtApellido2);
-		txtApellido2.setColumns(10);
-		
-		txtActualizar = new JTextField();
-		txtActualizar.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del clienta a actualizar");
-		txtActualizar.setBounds(356, 49, 86, 20);
-		contentPane.add(txtActualizar);
-		txtActualizar.setColumns(10);
-		
-		txtEliminar = new JTextField();
-		txtEliminar.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
-		txtEliminar.setBounds(356, 78, 86, 20);
-		contentPane.add(txtEliminar);
-		txtEliminar.setColumns(10);
-		
-		ScrollDireccion = new JScrollPane((Component) null);
-		ScrollDireccion.setEnabled(false);
-		ScrollDireccion.setPreferredSize(new Dimension(0, 0));
-		ScrollDireccion.setBounds(107, 165, 229, 47);
-		contentPane.add(ScrollDireccion);
-		
-		txtDireccion = new JTextArea();
-		txtDireccion.setToolTipText("Direcci\u00F3n del cliente");
-		ScrollDireccion.setViewportView(txtDireccion);
-		
-		txtTelefono = new JTextField();
-		txtTelefono.setToolTipText("N\u00FAmero de tel\u00E9fono del cliente");
-		txtTelefono.setBounds(107, 241, 86, 20);
-		contentPane.add(txtTelefono);
-		txtTelefono.setColumns(10);
-		
-		btnIngresar = new JButton("Ingresar");
-		btnIngresar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnIngresar.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/login.png")));
-		btnIngresar.setToolTipText("Ingresa los datos a la base de datos");
-		btnIngresar.setBounds(30, 378, 110, 23);
-		contentPane.add(btnIngresar);
-		
 		btnSalir = new JButton("Salir");
+		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (JOptionPane.showConfirmDialog(null,
@@ -270,35 +120,266 @@ public class Interfaz extends JFrame {
 		});
 		btnSalir.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/salida.png")));
 		btnSalir.setToolTipText("Salir del Sistema de forma definitiva");
-		btnSalir.setBounds(473, 394, 110, 23);
+		btnSalir.setBounds(502, 506, 110, 32);
 		contentPane.add(btnSalir);
 		
-		JButton btnActualizar = new JButton("Actualizar");
-		btnActualizar.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente");
-		btnActualizar.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
-		btnActualizar.setBounds(452, 48, 131, 23);
-		contentPane.add(btnActualizar);
+		JPanel panelTransaccion = new JPanel();
+		panelTransaccion.setLayout(null);
+		panelTransaccion.setOpaque(false);
+		panelTransaccion.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panelTransaccion.setBounds(344, 170, 268, 157);
+		contentPane.add(panelTransaccion);
 		
-		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setToolTipText("Eliminar los datos del cliente");
-		btnEliminar.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
-		btnEliminar.setBounds(452, 77, 131, 23);
-		contentPane.add(btnEliminar);
+		JButton btnEliminarTrans = new JButton("Eliminar");
+		btnEliminarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
+		btnEliminarTrans.setToolTipText("Eliminar los datos del cliente");
+		btnEliminarTrans.setBounds(127, 108, 111, 25);
+		panelTransaccion.add(btnEliminarTrans);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(153, 153, 153));
-		panel.setOpaque(false);
-		panel.setForeground(new Color(30, 144, 255));
-		panel.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBounds(10, 32, 336, 387);
-		contentPane.add(panel);
+		JButton btnActualizarTrans = new JButton("Actualizar");
+		btnActualizarTrans.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 frameTA = new FrameATrans();
+					
+					frameTA.setVisible(true);
+			}
+		});
+		btnActualizarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
+		btnActualizarTrans.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente");
+		btnActualizarTrans.setBounds(127, 73, 111, 23);
+		panelTransaccion.add(btnActualizarTrans);
+		
+		JLabel lblTransaccion = new JLabel("Transacci\u00F3n:");
+		lblTransaccion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTransaccion.setBounds(10, 37, 111, 14);
+		panelTransaccion.add(lblTransaccion);
+		
+		txtActualizarTrans = new JTextField();
+		txtActualizarTrans.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtActualizarTrans.setColumns(10);
+		txtActualizarTrans.setBounds(10, 74, 86, 20);
+		panelTransaccion.add(txtActualizarTrans);
+		
+		txtEliminar = new JTextField();
+		txtEliminar.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtEliminar.setColumns(10);
+		txtEliminar.setBounds(10, 110, 86, 20);
+		panelTransaccion.add(txtEliminar);
+		
+		JButton btnIngresarTrans = new JButton("Ingresar");
+		btnIngresarTrans.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 frameIngresarT = new FrameTransaccion("INGRESAR TRANSACCION", "Ingresar", false);
+				 frameIngresarT.setVisible(true);
+			}
+		});
+		btnIngresarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/ingresar.png")));
+		btnIngresarTrans.setToolTipText("Ingresa los datos a la base de datos");
+		btnIngresarTrans.setBounds(128, 35, 110, 23);
+		panelTransaccion.add(btnIngresarTrans);
+		
+		JPanel panelCliente = new JPanel();
+		panelCliente.setOpaque(false);
+		panelCliente.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panelCliente.setBounds(344, 30, 268, 122);
+		contentPane.add(panelCliente);
+		panelCliente.setLayout(null);
+		
+		JButton btnEliminarCliente = new JButton("Eliminar");
+		btnEliminarCliente.setBounds(127, 72, 109, 25);
+		panelCliente.add(btnEliminarCliente);
+		btnEliminarCliente.setToolTipText("Eliminar los datos del cliente");
+		btnEliminarCliente.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
+		
+		JButton btnActualizarCliente = new JButton("Actualizar");
+		btnActualizarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnActualizarCliente.setBounds(127, 37, 109, 23);
+		panelCliente.add(btnActualizarCliente);
+		btnActualizarCliente.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente");
+		btnActualizarCliente.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
+		
+		JLabel lblCliente = new JLabel("Cliente:");
+		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblCliente.setBounds(10, 11, 89, 14);
+		panelCliente.add(lblCliente);
+		
+		txtActualizarCliente = new JTextField();
+		txtActualizarCliente.setBounds(10, 38, 86, 20);
+		panelCliente.add(txtActualizarCliente);
+		txtActualizarCliente.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del clienta a actualizar");
+		txtActualizarCliente.setColumns(10);
+		
+		txtEliminarCliente = new JTextField();
+		txtEliminarCliente.setBounds(10, 74, 86, 20);
+		panelCliente.add(txtEliminarCliente);
+		txtEliminarCliente.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtEliminarCliente.setColumns(10);
+		
+		JPanel ingresarCliente = new JPanel();
+		ingresarCliente.setBackground(new Color(153, 153, 153));
+		ingresarCliente.setOpaque(false);
+		ingresarCliente.setForeground(new Color(30, 144, 255));
+		ingresarCliente.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		ingresarCliente.setBounds(10, 30, 319, 465);
+		contentPane.add(ingresarCliente);
+		ingresarCliente.setLayout(null);
+		
+		btnIngresar = new JButton("Ingresar");
+		btnIngresar.setBounds(22, 408, 93, 25);
+		ingresarCliente.add(btnIngresar);
+		btnIngresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnIngresar.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/login.png")));
+		btnIngresar.setToolTipText("Ingresa los datos a la base de datos");
+		
+		JLabel lblFechaNacimiento = new JLabel("Fecha de nacimiento:");
+		lblFechaNacimiento.setBounds(23, 346, 125, 14);
+		ingresarCliente.add(lblFechaNacimiento);
+		lblFechaNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		JLabel lblTelefono = new JLabel("Tel\u00E9fono:");
+		lblTelefono.setBounds(22, 298, 82, 14);
+		ingresarCliente.add(lblTelefono);
+		lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		txtTelefono = new JTextField();
+		txtTelefono.setBounds(127, 296, 86, 20);
+		ingresarCliente.add(txtTelefono);
+		txtTelefono.setToolTipText("N\u00FAmero de tel\u00E9fono del cliente");
+		txtTelefono.setColumns(10);
+		
+		JLabel lblDireccion = new JLabel("Direcci\u00F3n:");
+		lblDireccion.setBounds(22, 212, 110, 14);
+		ingresarCliente.add(lblDireccion);
+		lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		ScrollDireccion = new JScrollPane((Component) null);
+		ScrollDireccion.setBounds(127, 207, 175, 65);
+		ingresarCliente.add(ScrollDireccion);
+		ScrollDireccion.setEnabled(false);
+		ScrollDireccion.setPreferredSize(new Dimension(0, 0));
+		
+		txtDireccion = new JTextArea();
+		txtDireccion.setToolTipText("Direcci\u00F3n del cliente");
+		ScrollDireccion.setViewportView(txtDireccion);
+		
+		JLabel lblApellido2 = new JLabel("Segundo apellido:");
+		lblApellido2.setBounds(22, 170, 110, 14);
+		ingresarCliente.add(lblApellido2);
+		lblApellido2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		txtApellido2 = new JTextField();
+		txtApellido2.setBounds(127, 168, 86, 20);
+		ingresarCliente.add(txtApellido2);
+		txtApellido2.setToolTipText("Segundo apellido del cliente");
+		txtApellido2.setColumns(10);
+		
+		JLabel lblApellido1 = new JLabel("Primer apellido:");
+		lblApellido1.setBounds(22, 134, 82, 14);
+		ingresarCliente.add(lblApellido1);
+		lblApellido1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		txtApellido1 = new JTextField();
+		txtApellido1.setBounds(127, 132, 86, 20);
+		ingresarCliente.add(txtApellido1);
+		txtApellido1.setToolTipText("Primer apellido del cliente");
+		txtApellido1.setColumns(10);
+		
+			
+			JLabel lblNombre = new JLabel("Nombre: ");
+			lblNombre.setBounds(22, 96, 61, 14);
+			ingresarCliente.add(lblNombre);
+			lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			
+			txtNombre = new JTextField();
+			txtNombre.setBounds(127, 94, 86, 20);
+			ingresarCliente.add(txtNombre);
+			txtNombre.setToolTipText("Nombre completo del cliente");
+			txtNombre.setColumns(10);
+			
+			JLabel lblCedula = new JLabel("C\u00E9dula:");
+			lblCedula.setBounds(22, 55, 46, 14);
+			ingresarCliente.add(lblCedula);
+			lblCedula.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			
+			txtCedula = new JTextField();
+			txtCedula.setBounds(127, 53, 86, 20);
+			ingresarCliente.add(txtCedula);
+			txtCedula.setToolTipText("Ingresa el n\u00FAmero de c\u00E9dula del cliente");
+			txtCedula.setColumns(10);
+			
+			JLabel lblIngresarCliente = new JLabel("Ingresar Cliente:");
+			lblIngresarCliente.setFont(new Font("Tahoma", Font.BOLD, 14));
+			lblIngresarCliente.setBounds(22, 11, 158, 14);
+			ingresarCliente.add(lblIngresarCliente);
 		
 		Date date = new Date();
 		DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy\n HH:mm:ss ");
 		
+		JPanel panelTarjeta = new JPanel();
+		panelTarjeta.setLayout(null);
+		panelTarjeta.setOpaque(false);
+		panelTarjeta.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panelTarjeta.setBounds(344, 338, 268, 157);
+		contentPane.add(panelTarjeta);
+		
+		JButton btnEliminarTarj = new JButton("Eliminar");
+		btnEliminarTarj.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
+		btnEliminarTarj.setToolTipText("Eliminar los datos del cliente");
+		btnEliminarTarj.setBounds(127, 102, 111, 25);
+		panelTarjeta.add(btnEliminarTarj);
+		
+		JButton btnActualizarTarj = new JButton("Actualizar");
+		btnActualizarTarj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 frameTarjA= new FrameATarj();
+					frameTarjA.setVisible(true);
+			}
+		});
+		btnActualizarTarj.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
+		btnActualizarTarj.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente");
+		btnActualizarTarj.setBounds(127, 67, 111, 23);
+		panelTarjeta.add(btnActualizarTarj);
+		
+		JLabel lblTarjeta = new JLabel("Tarjeta:");
+		lblTarjeta.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTarjeta.setBounds(10, 31, 111, 14);
+		panelTarjeta.add(lblTarjeta);
+		
+		txtActualizar = new JTextField();
+		txtActualizar.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtActualizar.setColumns(10);
+		txtActualizar.setBounds(10, 68, 86, 20);
+		panelTarjeta.add(txtActualizar);
+		
+		txtEliminarTarj = new JTextField();
+		txtEliminarTarj.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtEliminarTarj.setColumns(10);
+		txtEliminarTarj.setBounds(10, 104, 86, 20);
+		panelTarjeta.add(txtEliminarTarj);
+		
+		JButton btnIngresarTarj = new JButton("Ingresar");
+		btnIngresarTarj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frameIngresarTarj = new FrameTarjeta ("INGRESAR TARJETA", "Ingresar");
+				frameIngresarTarj.setVisible(true);
+			}
+		});
+		btnIngresarTarj.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/ingresar.png")));
+		btnIngresarTarj.setToolTipText("Ingresa los datos a la base de datos");
+		btnIngresarTarj.setBounds(128, 29, 110, 23);
+		panelTarjeta.add(btnIngresarTarj);
+		
 		JPanel barraEstado = new JPanel();
 		barraEstado.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		barraEstado.setBounds(10, 428, 574, 30);
+		barraEstado.setBounds(6, 508, 486, 30);
 		barraEstado.setOpaque(false);
 		contentPane.add(barraEstado);
 		
@@ -308,7 +389,7 @@ public class Interfaz extends JFrame {
 		
 		JLabel lblImagenFondo = new JLabel("New label");
 		lblImagenFondo.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/FondoFrame.jpg")));
-		lblImagenFondo.setBounds(0, 0, 607, 498);
+		lblImagenFondo.setBounds(0, 0, 944, 561);
 		contentPane.add(lblImagenFondo);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
