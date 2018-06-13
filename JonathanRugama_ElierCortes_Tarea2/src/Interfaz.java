@@ -24,7 +24,9 @@ import javax.swing.JMenu;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JMenuItem;
@@ -44,7 +46,7 @@ import javax.swing.border.TitledBorder;
 
 
 
-public class Interfaz extends JFrame {
+public class Interfaz extends JFrame implements Runnable {
 
 	private JPanel contentPane;
 	private JTextField txtCedula;
@@ -69,11 +71,21 @@ public class Interfaz extends JFrame {
 	private JTextField txtEliminar;
 	private JTextField txtActualizar;
 	private JTextField txtEliminarTarj;
+	private String hora, minutos, segundos, ampm;
+	private Calendar calendario;
+	private String reloj;
+	private Thread h1;
+	
+	
+	
+protected JLabel lblReloj;
 	
 
 
 	
 	public Interfaz() throws InterruptedException {
+		h1 = new Thread(this);
+		h1.start();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/Imagenes/usuario.png")));
 		setTitle("Clientes");
 	
@@ -383,14 +395,65 @@ public class Interfaz extends JFrame {
 		barraEstado.setOpaque(false);
 		contentPane.add(barraEstado);
 		
-		JLabel lblHora = new JLabel(hourdateFormat.format(date).concat("PROGRAMACIÓN II/UCR "));
-		barraEstado.add(lblHora);
+		lblReloj= new JLabel(reloj);
+		barraEstado.add(lblReloj);
 		
 		
 		JLabel lblImagenFondo = new JLabel("New label");
 		lblImagenFondo.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/FondoFrame.jpg")));
 		lblImagenFondo.setBounds(0, 0, 944, 561);
 		contentPane.add(lblImagenFondo);
+		
+	
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
+	
 	}
+
+
+
+
+	@Override
+	public void run() {
+Thread ct = Thread.currentThread();
+		
+		while (ct==h1) {}
+	
+			try {
+				calcula ();
+				reloj = (hora+ ":" + minutos+ ":" +segundos+ " " +ampm);
+				Thread.sleep(1000);
+				
+			}catch (InterruptedException e) {}
+		
+	}
+	
+	public void calcula() {
+	    Calendar calendario = new GregorianCalendar();
+	    Date fechaHoraActual = new Date();
+	    
+	    calendario.setTime(fechaHoraActual);
+	    ampm = calendario.get(Calendar.AM_PM) ==Calendar.AM? "AM" : "PM";
+		if (ampm.equals("PM")) {   //Verifica si la hora es AM o PM... si es PM, resta 12 horas
+			int h = calendario.get(Calendar.HOUR_OF_DAY)-12;
+			hora = h>9?  " "+ h:  "0" + h;
+			
+		} else {
+			                                                                                               /*Si la horaes mayor a 9 no se agrega nada , pero sino, nos agrega un 0 antes de la hora.*/
+			hora = calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY): "0" +calendario.get(Calendar.HOUR_OF_DAY);
+		}
+		  /*Lo mismo aplica para minutos.*/
+		minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE) : "0"+ calendario.get(Calendar.MINUTE);
+		segundos = calendario.get(Calendar.SECOND)>9? "" +calendario.get(Calendar.SECOND): "0"+calendario.get(Calendar.SECOND);
+	}
+
+
+
+
+
+
+
+
+
+
 }

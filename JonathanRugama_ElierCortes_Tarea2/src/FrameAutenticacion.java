@@ -110,7 +110,8 @@ public class FrameAutenticacion extends JFrame {
 							
 							timer.stop();//se detiene el temporizador
 							try {
-								menuPrincipal = new Interfaz ();// se crea el objeto de interfaz
+								menuPrincipal = new Interfaz ();
+								// se crea el objeto de interfaz
 							} catch (InterruptedException e1) {
 								
 								e1.printStackTrace();//se ejecuta la excepcion en caso de que algo salga mal
