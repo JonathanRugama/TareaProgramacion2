@@ -7,6 +7,8 @@ public class Principal {
 		autenticacion = new FrameAutenticacion ();
 		autenticacion.setVisible(true);
 String prueba;
+int otro;
+//comentario 
 	}
 
 }
