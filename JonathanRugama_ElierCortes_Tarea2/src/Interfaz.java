@@ -48,6 +48,10 @@ import javax.swing.border.TitledBorder;
 
 public class Interfaz extends JFrame implements Runnable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtCedula;
 	private JTextField txtNombre;
@@ -74,11 +78,12 @@ public class Interfaz extends JFrame implements Runnable {
 	private String hora, minutos, segundos, ampm;
 	private Calendar calendario;
 	private String reloj;
+	 private JLabel lblReloj = new JLabel("");
 	private Thread h1;
 	
 	
 	
-protected JLabel lblReloj;
+
 	
 
 
@@ -395,7 +400,10 @@ protected JLabel lblReloj;
 		barraEstado.setOpaque(false);
 		contentPane.add(barraEstado);
 		
-		lblReloj= new JLabel(reloj);
+
+	
+		
+	
 		barraEstado.add(lblReloj);
 		
 		
@@ -415,17 +423,21 @@ protected JLabel lblReloj;
 
 	@Override
 	public void run() {
-Thread ct = Thread.currentThread();
-		
-		while (ct==h1) {}
 	
+Thread ct = Thread.currentThread();
+
+		while (ct==Thread.currentThread()) {
+		
+			calcula ();
+
+			lblReloj.setText((hora+ ":" + minutos+ ":" +segundos+ " " +ampm));
+			revalidate();
 			try {
-				calcula ();
-				reloj = (hora+ ":" + minutos+ ":" +segundos+ " " +ampm);
+				
 				Thread.sleep(1000);
 				
 			}catch (InterruptedException e) {}
-		
+		}
 	}
 	
 	public void calcula() {
