@@ -97,7 +97,7 @@ public class Interfaz extends JFrame implements Runnable {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		setBounds(100, 100, 950, 608);
+		setBounds(100, 100, 992, 608);
 		setLocationRelativeTo(null);
 		setResizable(false);
 
@@ -149,7 +149,7 @@ public class Interfaz extends JFrame implements Runnable {
 		
 		JButton btnEliminarTrans = new JButton("Eliminar");
 		btnEliminarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
-		btnEliminarTrans.setToolTipText("Eliminar los datos del cliente");
+		btnEliminarTrans.setToolTipText("Eliminar las transacciones realizadas");
 		btnEliminarTrans.setBounds(127, 108, 111, 25);
 		panelTransaccion.add(btnEliminarTrans);
 		
@@ -163,7 +163,7 @@ public class Interfaz extends JFrame implements Runnable {
 			}
 		});
 		btnActualizarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
-		btnActualizarTrans.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente");
+		btnActualizarTrans.setToolTipText("Actualiza las transacciones que \r\nse encuentran en la base de datos");
 		btnActualizarTrans.setBounds(127, 73, 111, 23);
 		panelTransaccion.add(btnActualizarTrans);
 		
@@ -192,7 +192,7 @@ public class Interfaz extends JFrame implements Runnable {
 			}
 		});
 		btnIngresarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/ingresar.png")));
-		btnIngresarTrans.setToolTipText("Ingresa los datos a la base de datos");
+		btnIngresarTrans.setToolTipText("Ingresar una transacci\u00F3n a la base de datos");
 		btnIngresarTrans.setBounds(128, 35, 110, 23);
 		panelTransaccion.add(btnIngresarTrans);
 		
@@ -339,6 +339,42 @@ public class Interfaz extends JFrame implements Runnable {
 		Date date = new Date();
 		DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy\n HH:mm:ss ");
 		
+		JPanel panelTablaTarj = new JPanel();
+		panelTablaTarj.setLayout(null);
+		panelTablaTarj.setOpaque(false);
+		panelTablaTarj.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panelTablaTarj.setBounds(622, 338, 354, 157);
+		contentPane.add(panelTablaTarj);
+		
+		JLabel lblTablaTarjeta = new JLabel("Tabla Tarjeta:");
+		lblTablaTarjeta.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTablaTarjeta.setBounds(10, 11, 145, 14);
+		panelTablaTarj.add(lblTablaTarjeta);
+		
+		JPanel panelTablaTrans = new JPanel();
+		panelTablaTrans.setLayout(null);
+		panelTablaTrans.setOpaque(false);
+		panelTablaTrans.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panelTablaTrans.setBounds(622, 170, 354, 157);
+		contentPane.add(panelTablaTrans);
+		
+		JLabel lblTablaTransaccion = new JLabel("Tabla Transacci\u00F3n:");
+		lblTablaTransaccion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTablaTransaccion.setBounds(10, 11, 145, 14);
+		panelTablaTrans.add(lblTablaTransaccion);
+		
+		JPanel panelTablaCliente = new JPanel();
+		panelTablaCliente.setLayout(null);
+		panelTablaCliente.setOpaque(false);
+		panelTablaCliente.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panelTablaCliente.setBounds(622, 30, 354, 122);
+		contentPane.add(panelTablaCliente);
+		
+		JLabel lblTablaCliente = new JLabel("Tabla Cliente:");
+		lblTablaCliente.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTablaCliente.setBounds(10, 11, 95, 14);
+		panelTablaCliente.add(lblTablaCliente);
+		
 		JPanel panelTarjeta = new JPanel();
 		panelTarjeta.setLayout(null);
 		panelTarjeta.setOpaque(false);
@@ -348,7 +384,7 @@ public class Interfaz extends JFrame implements Runnable {
 		
 		JButton btnEliminarTarj = new JButton("Eliminar");
 		btnEliminarTarj.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
-		btnEliminarTarj.setToolTipText("Eliminar los datos del cliente");
+		btnEliminarTarj.setToolTipText("Seg\u00FAn el n\u00FAmero de tarjeta seleccionado, se podra eliminar");
 		btnEliminarTarj.setBounds(127, 102, 111, 25);
 		panelTarjeta.add(btnEliminarTarj);
 		
@@ -361,7 +397,7 @@ public class Interfaz extends JFrame implements Runnable {
 			}
 		});
 		btnActualizarTarj.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
-		btnActualizarTarj.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente");
+		btnActualizarTarj.setToolTipText("Seg\u00FAn el n\u00FAmero de tarjeta seleccionado de la tabla, se podra actualizar");
 		btnActualizarTarj.setBounds(127, 67, 111, 23);
 		panelTarjeta.add(btnActualizarTarj);
 		
@@ -390,7 +426,7 @@ public class Interfaz extends JFrame implements Runnable {
 			}
 		});
 		btnIngresarTarj.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/ingresar.png")));
-		btnIngresarTarj.setToolTipText("Ingresa los datos a la base de datos");
+		btnIngresarTarj.setToolTipText("Ingresa los datos de tarjeta");
 		btnIngresarTarj.setBounds(128, 29, 110, 23);
 		panelTarjeta.add(btnIngresarTarj);
 		
@@ -409,7 +445,7 @@ public class Interfaz extends JFrame implements Runnable {
 		
 		JLabel lblImagenFondo = new JLabel("New label");
 		lblImagenFondo.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/FondoFrame.jpg")));
-		lblImagenFondo.setBounds(0, 0, 944, 561);
+		lblImagenFondo.setBounds(0, 0, 986, 561);
 		contentPane.add(lblImagenFondo);
 		
 	
@@ -430,7 +466,7 @@ Thread ct = Thread.currentThread();
 		
 			calcula ();
 
-			lblReloj.setText((hora+ ":" + minutos+ ":" +segundos+ " " +ampm));
+			lblReloj.setText((hora+ ":" + minutos+ ":" +segundos+ " " +ampm + "PROGRAMACION II - UCR"));
 			revalidate();
 			try {
 				
