@@ -12,13 +12,14 @@ import javax.swing.border.BevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
+import com.toedter.calendar.JDateChooser;
+import java.awt.Toolkit;
 
 public class FrameTarjeta extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtTarjeta;
 	private JTextField txtCedula;
-	private JTextField txtFechaEmision;
 	private JLabel lblCodigoSeguridad;
 	private JTextField txtCodigoSeguridad;
 	private JLabel lblSaldoColones;
@@ -32,6 +33,7 @@ public class FrameTarjeta extends JFrame {
 	protected JButton btnIngresar; 
 	
 	public FrameTarjeta(String tituloFrame, String tituloBoton) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(FrameTarjeta.class.getResource("/Imagenes/tarjeta.png")));
 		setTitle(tituloFrame);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 449);
@@ -57,6 +59,7 @@ public class FrameTarjeta extends JFrame {
 		contentPane.add(lblCdula);
 		
 		txtCedula = new JTextField();
+		txtCedula.setToolTipText("Su n\u00FAmero de identificacion. Ejemplo: 504120533");
 		txtCedula.setBounds(148, 68, 86, 20);
 		contentPane.add(txtCedula);
 		txtCedula.setColumns(10);
@@ -64,11 +67,6 @@ public class FrameTarjeta extends JFrame {
 		JLabel lblFechaDeEmisin = new JLabel("Fecha de emisi\u00F3n:");
 		lblFechaDeEmisin.setBounds(26, 116, 103, 14);
 		contentPane.add(lblFechaDeEmisin);
-		
-		txtFechaEmision = new JTextField();
-		txtFechaEmision.setBounds(148, 113, 86, 20);
-		contentPane.add(txtFechaEmision);
-		txtFechaEmision.setColumns(10);
 		
 		JLabel lblFecha = new JLabel("Fecha de vencimiento:");
 		lblFecha.setBounds(26, 159, 145, 14);
@@ -79,6 +77,7 @@ public class FrameTarjeta extends JFrame {
 		contentPane.add(lblCodigoSeguridad);
 		
 		txtCodigoSeguridad = new JTextField();
+		txtCodigoSeguridad.setToolTipText("Los 3 \u00FAltimos n\u00FAmeros de su tarjeta");
 		txtCodigoSeguridad.setBounds(148, 194, 86, 20);
 		contentPane.add(txtCodigoSeguridad);
 		txtCodigoSeguridad.setColumns(10);
@@ -102,7 +101,8 @@ public class FrameTarjeta extends JFrame {
 		txtSaldoDolares.setColumns(10);
 		
 		lblMarca = new JLabel("Marca:");
-		lblMarca.setBounds(26, 332, 64, 14);
+		lblMarca.setIcon(new ImageIcon(FrameTarjeta.class.getResource("/Imagenes/tarjetas.png")));
+		lblMarca.setBounds(26, 332, 86, 14);
 		contentPane.add(lblMarca);
 		
 		JComboBox cmbxMarca = new JComboBox();
@@ -131,6 +131,16 @@ public class FrameTarjeta extends JFrame {
 		panel.setOpaque(false);
 		contentPane.add(panel);
 		panel.setLayout(null);
+		
+		JDateChooser dcFechaVencim = new JDateChooser();
+		dcFechaVencim.setToolTipText("Seleccione la fecha de vencimiento");
+		dcFechaVencim.setBounds(139, 144, 87, 20);
+		panel.add(dcFechaVencim);
+		
+		JDateChooser dcFechaEmis = new JDateChooser();
+		dcFechaEmis.setToolTipText("Seleccione la fecha de vencimiento");
+		dcFechaEmis.setBounds(139, 100, 87, 20);
+		panel.add(dcFechaEmis);
 		
 		lblImagen = new JLabel("New label");
 		lblImagen.setIcon(new ImageIcon(FrameTarjeta.class.getResource("/Imagenes/FondoFrame.jpg")));

@@ -67,7 +67,7 @@ public class FrameAutenticacion extends JFrame {
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setMaximum(10);
 		progressBar.setBounds(145, 179, 146, 23);
-		contentPane.add(progressBar);
+
 		
 		JLabel lblVerificar = new JLabel("");
 		lblVerificar.setHorizontalAlignment(SwingConstants.CENTER);
@@ -75,9 +75,10 @@ public class FrameAutenticacion extends JFrame {
 		contentPane.add(lblVerificar);
 		
 		JButton btnIngresar = new JButton("Ingresar");
+		btnIngresar.setIcon(new ImageIcon(FrameAutenticacion.class.getResource("/Imagenes/ingresar.png")));
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				contentPane.add(progressBar);
 				
 				try {
 			      if (autenticarIngresoASistema()==true) {
@@ -136,7 +137,7 @@ public class FrameAutenticacion extends JFrame {
 			
 			}
 		});
-		btnIngresar.setBounds(33, 179, 89, 23);
+		btnIngresar.setBounds(33, 179, 103, 23);
 		contentPane.add(btnIngresar);
 		
 		

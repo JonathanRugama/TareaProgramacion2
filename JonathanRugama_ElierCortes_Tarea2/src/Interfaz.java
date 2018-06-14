@@ -77,15 +77,17 @@ public class Interfaz extends JFrame implements Runnable {
 	private Calendar calendario;
 	private String reloj;
 	private JLabel lblReloj = new JLabel("");
+	private Date fecha = new Date ();
+	private DateFormat hourDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	private Thread h1;
-	
+
 	
 	
 	public Interfaz() throws InterruptedException {
 		h1 = new Thread(this);//se crea el hilo
 		h1.start();//se inicia el hilo
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/Imagenes/usuario.png")));//se agrega el icono al Frame
-		setTitle("Clientes");//se le da el titulo al Frame
+		setTitle("Clientes - MENU PRINCIPAL");//se le da el titulo al Frame
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);//se añade al contenido del panel
@@ -102,6 +104,20 @@ public class Interfaz extends JFrame implements Runnable {
 		menuBar.add(mnACercaDe);//se añade a la barra de menu
 		
 		JMenuItem mntmPrograma = new JMenuItem("Programa");//se crea el menú item
+		mntmPrograma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "EXPLICACIÓN: La razón del porque no se agrego el botón consultar, "
+						                                                                            + "\n es precisamente porque al existir las tablas " + "\n"
+						                                                                            		+ "el usuario tendrá la oportunidad de visualizar y seleccionar "
+						                                                                            		+ "\n las filas  en las respectivas tablas, por ende "
+						                                                                            		+ "\n podra eliminar y consultar los respectivos formularios cuando "
+						                                                                            		+ "\nel usuario seleccione el dato que desea visualizar con detalle "
+						                                                                            		+ "\n en su respectivo formulario, el cual será similar o igual a "
+						                                                                            		+ "\n los formularios ingresar de Cliente, Transacción y Tarjeta."
+						                                                                            		+ "\n Lo anterior con el fin de que el programa sea más automatizado "
+						                                                                            		+ "\n y se vea menos cargado.", "¿Por qué no hay botón CONSULTA?", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		mntmPrograma.setToolTipText("Brinda informaci\u00F3n acerca de la aplicaci\u00F3n");//texto informativo
 		mnACercaDe.add(mntmPrograma);//se añade añ menú a cerca de
 		
@@ -125,7 +141,7 @@ public class Interfaz extends JFrame implements Runnable {
 				if (JOptionPane.showConfirmDialog(null,
 						"¿DESEA FINALIZAR?", "FINALIZAR",
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION  ) {
-					JOptionPane.showMessageDialog(null,"PROGRAMA FINALIZADO");	
+				
 					System.exit(0);
 			}
 			}
@@ -219,7 +235,7 @@ public class Interfaz extends JFrame implements Runnable {
 		});
 		btnActualizarCliente.setBounds(106, 37, 130, 23);
 		panelCliente.add(btnActualizarCliente);
-		btnActualizarCliente.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente");
+		btnActualizarCliente.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente,\r\nde tal forma que se muestran los datos de Jtexfield para que estos puedan \r\nser nuevamente ingresados y actualizados.");
 		btnActualizarCliente.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
 		
 		//label como titulo 
@@ -350,6 +366,7 @@ public class Interfaz extends JFrame implements Runnable {
 		
 		//se crea ub nuevo panel
 		JPanel panelTablaTarj = new JPanel();
+		panelTablaTarj.setToolTipText("En la Tabla Tarjeta se podr\u00E1 consultar todos los clientes ingresados a la vista del usuario,\r\nesta es la raz\u00F3n del porque no hay bot\u00F3n Consultar.");
 		panelTablaTarj.setLayout(null);
 		panelTablaTarj.setOpaque(false);
 		panelTablaTarj.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -362,6 +379,7 @@ public class Interfaz extends JFrame implements Runnable {
 		panelTablaTarj.add(lblTablaTarjeta);
 		//panel y sus propiedades
 		JPanel panelTablaTrans = new JPanel();
+		panelTablaTrans.setToolTipText("En la Tabla Transacci\u00F3n se podr\u00E1 consultar todos los clientes ingresados a la vista del usuario,esta es la raz\u00F3n del porque no hay bot\u00F3n Consultar.");
 		panelTablaTrans.setLayout(null);
 		panelTablaTrans.setOpaque(false);
 		panelTablaTrans.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -374,6 +392,7 @@ public class Interfaz extends JFrame implements Runnable {
 		panelTablaTrans.add(lblTablaTransaccion);
 		
 		JPanel panelTablaCliente = new JPanel();
+		panelTablaCliente.setToolTipText("En la Tabla Cliente se podr\u00E1 consultar todos los clientes ingresados a la vista del usuario,\r\nesta es la raz\u00F3n del porque no hay bot\u00F3n Consultar.");
 		panelTablaCliente.setLayout(null);
 		panelTablaCliente.setOpaque(false);
 		panelTablaCliente.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -453,10 +472,10 @@ public class Interfaz extends JFrame implements Runnable {
 		lblImagenFondo.setBounds(0, 0, 986, 561);
 		contentPane.add(lblImagenFondo);
 		
-	
+	  
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);//evita que se cierre la principal al cerrar otro frame con la x
 		
-	
+		
 	}
 
 
@@ -468,7 +487,7 @@ public class Interfaz extends JFrame implements Runnable {
 		
 			calcula ();
 
-			lblReloj.setText((hora+ ":" + minutos+ ":" +segundos+ " " +ampm + "PROGRAMACION II - UCR"));
+			lblReloj.setText(("Fecha: "+hourDateFormat.format(fecha)+" Hora: "+hora+ ":" + minutos+ ":" +segundos+ " " +ampm + " PROGRAMACION II - UCR"));
 			revalidate();
 			try {
 				
