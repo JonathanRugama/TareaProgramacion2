@@ -43,14 +43,12 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
+import com.toedter.calendar.JDateChooser;
 
 
 
 public class Interfaz extends JFrame implements Runnable {
-
-	/**
-	 * 
-	 */
+	//definicion de objetos y atributos
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtCedula;
@@ -78,55 +76,52 @@ public class Interfaz extends JFrame implements Runnable {
 	private String hora, minutos, segundos, ampm;
 	private Calendar calendario;
 	private String reloj;
-	 private JLabel lblReloj = new JLabel("");
+	private JLabel lblReloj = new JLabel("");
 	private Thread h1;
 	
 	
 	
-
-	
-
-
-	
 	public Interfaz() throws InterruptedException {
-		h1 = new Thread(this);
-		h1.start();
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/Imagenes/usuario.png")));
-		setTitle("Clientes");
-	
+		h1 = new Thread(this);//se crea el hilo
+		h1.start();//se inicia el hilo
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Interfaz.class.getResource("/Imagenes/usuario.png")));//se agrega el icono al Frame
+		setTitle("Clientes");//se le da el titulo al Frame
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		setBounds(100, 100, 992, 608);
-		setLocationRelativeTo(null);
-		setResizable(false);
-
-		contentPane.setLayout(null);
+		setContentPane(contentPane);//se añade al contenido del panel
+		setBounds(100, 100, 992, 608);//selecciona la ubicacion
+		setLocationRelativeTo(null);//se posiciona en el centro
+		setResizable(false);//evita que se modifique
+		contentPane.setLayout(null);//permite colocar los botones en cualquier posicion
 		
+		menuBar = new JMenuBar();//se crea la barra de menu
+		setJMenuBar(menuBar);//se envia la barra
 		
-		menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		JMenu mnACercaDe = new JMenu("Acerca de");//se crea la barra de acerca de
+		mnACercaDe.setToolTipText("Brinda informaci\u00F3n sobre el programa y autores");//texto informativo de la barra
+		menuBar.add(mnACercaDe);//se añade a la barra de menu
 		
-		JMenu mnACercaDe = new JMenu("Acerca de");
-		menuBar.add(mnACercaDe);
+		JMenuItem mntmPrograma = new JMenuItem("Programa");//se crea el menú item
+		mntmPrograma.setToolTipText("Brinda informaci\u00F3n acerca de la aplicaci\u00F3n");//texto informativo
+		mnACercaDe.add(mntmPrograma);//se añade añ menú a cerca de
 		
-		JMenuItem mntmPrograma = new JMenuItem("Programa");
-		mnACercaDe.add(mntmPrograma);
-		
-		JMenuItem mntmAutores = new JMenuItem("Autores");
-		mntmAutores.addActionListener(new ActionListener() {
+		JMenuItem mntmAutores = new JMenuItem("Autores");//se crea el menu item
+		mntmAutores.setToolTipText("Brinda informaci\u00F3n acerca de los creadores de la aplicaci\u00F3n");//texto informativo
+		mntmAutores.addActionListener(new ActionListener() {//evento del menu item
 			public void actionPerformed(ActionEvent e) {
-				
+				//muesta un mensaje con los nombres de los autores
 				JOptionPane.showMessageDialog(null, "Cortés Baltodano Elier B72410 \nRugama Obando Jonathan B56367", "INFORMACIÓN DE LOS AUTORES", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 		});
-		mnACercaDe.add(mntmAutores);
+		mnACercaDe.add(mntmAutores);//se añade al menu 
 		
-		btnSalir = new JButton("Salir");
-		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnSalir.addActionListener(new ActionListener() {
+		btnSalir = new JButton("Salir");//se crea el boton de salir
+		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 13));//se define el tipo de letra 
+		btnSalir.addActionListener(new ActionListener() {//evento del boton
 			public void actionPerformed(ActionEvent e) {
+				
+				//condicional que pregunta que se desea salir
 				if (JOptionPane.showConfirmDialog(null,
 						"¿DESEA FINALIZAR?", "FINALIZAR",
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION  ) {
@@ -135,31 +130,34 @@ public class Interfaz extends JFrame implements Runnable {
 			}
 			}
 		});
-		btnSalir.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/salida.png")));
-		btnSalir.setToolTipText("Salir del Sistema de forma definitiva");
-		btnSalir.setBounds(502, 506, 110, 32);
-		contentPane.add(btnSalir);
+		btnSalir.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/salida.png")));//se le añade imagen al boton
+		btnSalir.setToolTipText("Salir del Sistema de forma definitiva");//texto informativo
+		btnSalir.setBounds(502, 506, 110, 32);//se define la posicion
+		contentPane.add(btnSalir);//se añade al Frame
 		
-		JPanel panelTransaccion = new JPanel();
-		panelTransaccion.setLayout(null);
-		panelTransaccion.setOpaque(false);
-		panelTransaccion.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panelTransaccion.setBounds(344, 170, 268, 157);
-		contentPane.add(panelTransaccion);
+		JPanel panelTransaccion = new JPanel();//se crea el panel
+		panelTransaccion.setLayout(null);//
+		panelTransaccion.setOpaque(false);//se pone opaco
+		panelTransaccion.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));//se le define el tipo de borde
+		panelTransaccion.setBounds(344, 170, 268, 157);//se le añade la posicion
+		contentPane.add(panelTransaccion);//se agraga el panel
 		
+		
+		//se crea el boton de eliminar y se le añaden sus propiedades, luego se añade al frame
 		JButton btnEliminarTrans = new JButton("Eliminar");
 		btnEliminarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
 		btnEliminarTrans.setToolTipText("Eliminar las transacciones realizadas");
 		btnEliminarTrans.setBounds(127, 108, 111, 25);
 		panelTransaccion.add(btnEliminarTrans);
 		
+		//boton actualizafr con sus propiedades y un eventp
 		JButton btnActualizarTrans = new JButton("Actualizar");
 		btnActualizarTrans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				 frameTA = new FrameATrans();
+				 frameTA = new FrameATrans();//se crea un objeto de frame
 					
-					frameTA.setVisible(true);
+					frameTA.setVisible(true);//se hace visible el objeto
 			}
 		});
 		btnActualizarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
@@ -167,35 +165,38 @@ public class Interfaz extends JFrame implements Runnable {
 		btnActualizarTrans.setBounds(127, 73, 111, 23);
 		panelTransaccion.add(btnActualizarTrans);
 		
+		//label que sirve como titulo de transaccion con sus respectivas propiedades
 		JLabel lblTransaccion = new JLabel("Transacci\u00F3n:");
 		lblTransaccion.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTransaccion.setBounds(10, 37, 111, 14);
 		panelTransaccion.add(lblTransaccion);
 		
+		//se crea el campo de texto con sus propiedades y se añade al frame
 		txtActualizarTrans = new JTextField();
-		txtActualizarTrans.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtActualizarTrans.setToolTipText("Ingrese el n\u00FAmero de transacci\u00F3n a actualizar");
 		txtActualizarTrans.setColumns(10);
 		txtActualizarTrans.setBounds(10, 74, 86, 20);
 		panelTransaccion.add(txtActualizarTrans);
 		
 		txtEliminar = new JTextField();
-		txtEliminar.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtEliminar.setToolTipText("Ingrese el n\u00FAmero de transacci\u00F3n a eliminar");
 		txtEliminar.setColumns(10);
 		txtEliminar.setBounds(10, 110, 86, 20);
 		panelTransaccion.add(txtEliminar);
 		
+		//se crea el boton para ingresar transacciones con sus respectivas propiedades
 		JButton btnIngresarTrans = new JButton("Ingresar");
 		btnIngresarTrans.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 frameIngresarT = new FrameTransaccion("INGRESAR TRANSACCION", "Ingresar", false);
-				 frameIngresarT.setVisible(true);
+			public void actionPerformed(ActionEvent e) {//creacion del evento donde se crea un objeto de frame y lo hace visible, enviandole como
+				 frameIngresarT = new FrameTransaccion("INGRESAR TRANSACCION", "Ingresar", false);//parametros el titulo del frame y de un boton
+				 frameIngresarT.setVisible(true);//lo hace visible
 			}
 		});
 		btnIngresarTrans.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/ingresar.png")));
 		btnIngresarTrans.setToolTipText("Ingresar una transacci\u00F3n a la base de datos");
 		btnIngresarTrans.setBounds(128, 35, 110, 23);
 		panelTransaccion.add(btnIngresarTrans);
-		
+		//se crea un nuevo panel, defiendo sus propiedades y añadiendolo al frame
 		JPanel panelCliente = new JPanel();
 		panelCliente.setOpaque(false);
 		panelCliente.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -203,39 +204,43 @@ public class Interfaz extends JFrame implements Runnable {
 		contentPane.add(panelCliente);
 		panelCliente.setLayout(null);
 		
+		//se crea un boton eliminar con sus respectivas propiedades
 		JButton btnEliminarCliente = new JButton("Eliminar");
-		btnEliminarCliente.setBounds(127, 72, 109, 25);
+		btnEliminarCliente.setBounds(106, 72, 130, 25);
 		panelCliente.add(btnEliminarCliente);
 		btnEliminarCliente.setToolTipText("Eliminar los datos del cliente");
 		btnEliminarCliente.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
 		
+		//se crea el boton para actualizar los datos del cliente, con sus propiedades
 		JButton btnActualizarCliente = new JButton("Actualizar");
 		btnActualizarCliente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnActualizarCliente.setBounds(127, 37, 109, 23);
+		btnActualizarCliente.setBounds(106, 37, 130, 23);
 		panelCliente.add(btnActualizarCliente);
 		btnActualizarCliente.setToolTipText("Genera una acci\u00F3n para poder actualizar los datos del cliente");
 		btnActualizarCliente.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/actualizar.png")));
 		
+		//label como titulo 
 		JLabel lblCliente = new JLabel("Cliente:");
 		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCliente.setBounds(10, 11, 89, 14);
 		panelCliente.add(lblCliente);
-		
+		//campo de texto para enviar el nuemro de cedula del cliente a actualizar
 		txtActualizarCliente = new JTextField();
 		txtActualizarCliente.setBounds(10, 38, 86, 20);
 		panelCliente.add(txtActualizarCliente);
 		txtActualizarCliente.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del clienta a actualizar");
 		txtActualizarCliente.setColumns(10);
-		
+		//campo de texto para enviar el nuemro de cedula del cliente a eliminar
 		txtEliminarCliente = new JTextField();
 		txtEliminarCliente.setBounds(10, 74, 86, 20);
 		panelCliente.add(txtEliminarCliente);
 		txtEliminarCliente.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
 		txtEliminarCliente.setColumns(10);
 		
+		//se crea un nuevo panel, para ingresar clientes
 		JPanel ingresarCliente = new JPanel();
 		ingresarCliente.setBackground(new Color(153, 153, 153));
 		ingresarCliente.setOpaque(false);
@@ -244,9 +249,9 @@ public class Interfaz extends JFrame implements Runnable {
 		ingresarCliente.setBounds(10, 30, 319, 465);
 		contentPane.add(ingresarCliente);
 		ingresarCliente.setLayout(null);
-		
+		//se crea un nuevo boton y se le definen sus propiedades
 		btnIngresar = new JButton("Ingresar");
-		btnIngresar.setBounds(22, 408, 93, 25);
+		btnIngresar.setBounds(22, 408, 110, 25);
 		ingresarCliente.add(btnIngresar);
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -254,11 +259,11 @@ public class Interfaz extends JFrame implements Runnable {
 		});
 		btnIngresar.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/login.png")));
 		btnIngresar.setToolTipText("Ingresa los datos a la base de datos");
-		
-		JLabel lblFechaNacimiento = new JLabel("Fecha de nacimiento:");
-		lblFechaNacimiento.setBounds(23, 346, 125, 14);
+		//se crea un conjunto de etiquetas que representan los datos solicitados al cliente
+		JLabel lblFechaNacimiento = new JLabel("Fecha de "+"\nnacimiento:");
+		lblFechaNacimiento.setBounds(23, 346, 110, 14);
 		ingresarCliente.add(lblFechaNacimiento);
-		lblFechaNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblFechaNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
 		JLabel lblTelefono = new JLabel("Tel\u00E9fono:");
 		lblTelefono.setBounds(22, 298, 82, 14);
@@ -275,7 +280,7 @@ public class Interfaz extends JFrame implements Runnable {
 		lblDireccion.setBounds(22, 212, 110, 14);
 		ingresarCliente.add(lblDireccion);
 		lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
+		//se crea un scroll y un textArea para el ingreso de la direccion del cliente
 		ScrollDireccion = new JScrollPane((Component) null);
 		ScrollDireccion.setBounds(127, 207, 175, 65);
 		ingresarCliente.add(ScrollDireccion);
@@ -335,22 +340,27 @@ public class Interfaz extends JFrame implements Runnable {
 			lblIngresarCliente.setFont(new Font("Tahoma", Font.BOLD, 14));
 			lblIngresarCliente.setBounds(22, 11, 158, 14);
 			ingresarCliente.add(lblIngresarCliente);
+			//se crea un calendario para seleccionar la fecha de nacimiento del cliente
+			JDateChooser dcCalendario = new JDateChooser();
+			dcCalendario.setToolTipText("Seleccione la fecha de nacimiento del cliente");
+			dcCalendario.setDateFormatString("dd/MMM/yyyy");
+			dcCalendario.setBounds(127, 340, 95, 20);
+			ingresarCliente.add(dcCalendario);
 		
-		Date date = new Date();
-		DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy\n HH:mm:ss ");
 		
+		//se crea ub nuevo panel
 		JPanel panelTablaTarj = new JPanel();
 		panelTablaTarj.setLayout(null);
 		panelTablaTarj.setOpaque(false);
 		panelTablaTarj.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panelTablaTarj.setBounds(622, 338, 354, 157);
 		contentPane.add(panelTablaTarj);
-		
+		//label para tabla tarjera con sus respectivas propiedades
 		JLabel lblTablaTarjeta = new JLabel("Tabla Tarjeta:");
 		lblTablaTarjeta.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTablaTarjeta.setBounds(10, 11, 145, 14);
 		panelTablaTarj.add(lblTablaTarjeta);
-		
+		//panel y sus propiedades
 		JPanel panelTablaTrans = new JPanel();
 		panelTablaTrans.setLayout(null);
 		panelTablaTrans.setOpaque(false);
@@ -381,16 +391,16 @@ public class Interfaz extends JFrame implements Runnable {
 		panelTarjeta.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panelTarjeta.setBounds(344, 338, 268, 157);
 		contentPane.add(panelTarjeta);
-		
+		//se crea un nuevo boton para eliminar tarjetas y se le definen sus propiedades
 		JButton btnEliminarTarj = new JButton("Eliminar");
 		btnEliminarTarj.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/eliminar.png")));
 		btnEliminarTarj.setToolTipText("Seg\u00FAn el n\u00FAmero de tarjeta seleccionado, se podra eliminar");
 		btnEliminarTarj.setBounds(127, 102, 111, 25);
 		panelTarjeta.add(btnEliminarTarj);
-		
+		//se crea un boton para actualizar los datos de la tarjeta
 		JButton btnActualizarTarj = new JButton("Actualizar");
 		btnActualizarTarj.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {//genera un evento donde crea un objeto frame y lo hace visible
 				
 				 frameTarjA= new FrameATarj();
 					frameTarjA.setVisible(true);
@@ -407,17 +417,17 @@ public class Interfaz extends JFrame implements Runnable {
 		panelTarjeta.add(lblTarjeta);
 		
 		txtActualizar = new JTextField();
-		txtActualizar.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtActualizar.setToolTipText("Ingrese el n\u00FAmero de la tarjeta a actualizar");
 		txtActualizar.setColumns(10);
 		txtActualizar.setBounds(10, 68, 86, 20);
 		panelTarjeta.add(txtActualizar);
 		
 		txtEliminarTarj = new JTextField();
-		txtEliminarTarj.setToolTipText("Ingrese el n\u00FAmero de c\u00E9dula del cliente a eliminar");
+		txtEliminarTarj.setToolTipText("Ingrese el n\u00FAmero de la tarjeta a eliminar");
 		txtEliminarTarj.setColumns(10);
 		txtEliminarTarj.setBounds(10, 104, 86, 20);
 		panelTarjeta.add(txtEliminarTarj);
-		
+		//nuevo boton para ingresar con sus respecitvas propiedades
 		JButton btnIngresarTarj = new JButton("Ingresar");
 		btnIngresarTarj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -430,37 +440,29 @@ public class Interfaz extends JFrame implements Runnable {
 		btnIngresarTarj.setBounds(128, 29, 110, 23);
 		panelTarjeta.add(btnIngresarTarj);
 		
+		//panel que sirvirá como una barra de estado
 		JPanel barraEstado = new JPanel();
 		barraEstado.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		barraEstado.setBounds(6, 508, 486, 30);
 		barraEstado.setOpaque(false);
 		contentPane.add(barraEstado);
-		
-
-	
-		
-	
 		barraEstado.add(lblReloj);
-		
-		
+
 		JLabel lblImagenFondo = new JLabel("New label");
 		lblImagenFondo.setIcon(new ImageIcon(Interfaz.class.getResource("/Imagenes/FondoFrame.jpg")));
 		lblImagenFondo.setBounds(0, 0, 986, 561);
 		contentPane.add(lblImagenFondo);
 		
 	
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);//evita que se cierre la principal al cerrar otro frame con la x
 		
 	
 	}
 
 
-
-
-	@Override
 	public void run() {
 	
-Thread ct = Thread.currentThread();
+		Thread ct = Thread.currentThread();
 
 		while (ct==Thread.currentThread()) {
 		
@@ -494,14 +496,4 @@ Thread ct = Thread.currentThread();
 		minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE) : "0"+ calendario.get(Calendar.MINUTE);
 		segundos = calendario.get(Calendar.SECOND)>9? "" +calendario.get(Calendar.SECOND): "0"+calendario.get(Calendar.SECOND);
 	}
-
-
-
-
-
-
-
-
-
-
 }

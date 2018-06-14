@@ -22,9 +22,7 @@ public class FrameATarj extends FrameTarjeta{
 	setLocationRelativeTo(null);
 	super.lblImagen.setBounds(0, -14, 490, 437);
 	super.btnIngresar.setIcon(new ImageIcon(FrameTarjeta.class.getResource("/Imagenes/actualizar.png")));
-	JButton  btnBuscar = new JButton("Buscar");
-	 btnBuscar.setBounds(260, 18, 80, 23);
-	 super.panel.add(btnBuscar);
+
 	
 	}
 

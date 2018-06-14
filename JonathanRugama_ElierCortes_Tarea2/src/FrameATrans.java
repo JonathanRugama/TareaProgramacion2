@@ -17,11 +17,8 @@ public class FrameATrans extends FrameTransaccion {
 		
 		super("ACTUALIZAR TRANSACCION", "Actualizar",true);
 		
-		JButton  btnBuscar = new JButton("Buscar");
-		 btnBuscar.setBounds(260, 18, 80, 23);
+
 			setLocationRelativeTo(null);
-	
-		super.panel.add(btnBuscar);
 		
 		super.btnEjecutar.setIcon(new ImageIcon(FrameTransaccion.class.getResource("/Imagenes/actualizar.png")));
 
