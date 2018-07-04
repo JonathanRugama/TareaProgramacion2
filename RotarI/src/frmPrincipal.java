@@ -282,7 +282,7 @@ public class frmPrincipal extends JFrame {
    		 if (fuerza==contadorFuerza) {
             contJugador3++;
    			contadorFuerza= reinicioContadorFuerza;
-   			puntuacion.llenadoJugadores(indiceImagen, contJugador3, palabra);
+   			
    		   txtJugador3.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador3, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
@@ -295,7 +295,7 @@ public class frmPrincipal extends JFrame {
    		 if (fuerza==contadorFuerza) {
    		contJugador4++;
    			contadorFuerza= reinicioContadorFuerza;
-   			puntuacion.llenadoJugadores(indiceImagen, contJugador4, palabra);
+   	
    		   txtJugador4.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador4, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
@@ -308,7 +308,7 @@ public class frmPrincipal extends JFrame {
    		 if (fuerza==contadorFuerza) {
    			contJugador5++;
    			contadorFuerza= reinicioContadorFuerza;
-   			puntuacion.llenadoJugadores(indiceImagen, contJugador5, palabra);
+
    		   txtJugador5.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador5, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
@@ -321,7 +321,7 @@ public class frmPrincipal extends JFrame {
    		 if (fuerza==contadorFuerza) {
    			contJugador6++;
    			contadorFuerza= reinicioContadorFuerza;
-   			puntuacion.llenadoJugadores(indiceImagen, contJugador6, palabra);
+   			
    		   txtJugador6.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador6, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
@@ -334,7 +334,7 @@ public class frmPrincipal extends JFrame {
    		 if (fuerza==contadorFuerza) {
    			contJugador7++;
    			contadorFuerza= reinicioContadorFuerza;
-   			puntuacion.llenadoJugadores(indiceImagen, contJugador7, palabra);
+   	
    		   txtJugador7.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador7, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
@@ -347,7 +347,7 @@ public class frmPrincipal extends JFrame {
    		 if (fuerza==contadorFuerza) {
    			contJugador8++;
    			contadorFuerza= reinicioContadorFuerza;
-			puntuacion.llenadoJugadores(indiceImagen, contJugador8, palabra);
+			
 			   txtJugador8.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador8, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
@@ -362,8 +362,8 @@ public class frmPrincipal extends JFrame {
    			 contJugador1++;
    			
    			contadorFuerza= reinicioContadorFuerza;
-   		
-   			puntuacion.llenadoJugadores(indiceImagen, contJugador1, palabra);
+   		txtJugador1.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador1, palabra));
+   			;
    		 indiceJugadorALlenar =reinicioContadorFuerza;
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
