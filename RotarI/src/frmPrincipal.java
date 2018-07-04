@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -262,13 +263,16 @@ public class frmPrincipal extends JFrame {
 				 labelImagen.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Flecha2.png") ));	
 		   		 indiceImagen++;
 		   		 contadorFuerza++;
-		   		 System.out.println("LA fuerza es: " +contadorFuerza);
+		   		
 		   		 if (fuerza==contadorFuerza) {
 
 		         contadorFuerza= reinicioContadorFuerza;
 		         contJugador2++; //posición de la palabra a llenar
 		         
 		         txtJugador2.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador2, palabra));
+		         if (txtJugador2.getText().equals("BLACK_CAT")){
+		    			JOptionPane.showMessageDialog(null, "El perdedor es el jugador 2", "PERDEDOR", JOptionPane.INFORMATION_MESSAGE);
+		    		}
 		        
 		   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 
@@ -278,12 +282,15 @@ public class frmPrincipal extends JFrame {
 				 labelImagen.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Flecha3.png") ));	
 		   		 indiceImagen++;
 		 		 contadorFuerza++;
-		   		 System.out.println("LA fuerza es: " +contadorFuerza);
+		   	
    		 if (fuerza==contadorFuerza) {
             contJugador3++;
    			contadorFuerza= reinicioContadorFuerza;
    			
    		   txtJugador3.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador3, palabra));
+   		if (txtJugador3.getText().equals("BLACK_CAT")){
+   			JOptionPane.showMessageDialog(null, "El perdedor es el jugador 3", "PERDEDOR", JOptionPane.INFORMATION_MESSAGE);
+   		}
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		   		 return ;
@@ -291,12 +298,15 @@ public class frmPrincipal extends JFrame {
 				 labelImagen.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Flecha4.png") ));	
 		  		 indiceImagen++;
 		 		 contadorFuerza++;
-		   		 System.out.println("LA fuerza es: " +contadorFuerza);
+		   	
    		 if (fuerza==contadorFuerza) {
    		contJugador4++;
    			contadorFuerza= reinicioContadorFuerza;
    	
    		   txtJugador4.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador4, palabra));
+   		if (txtJugador4.getText().equals("BLACK_CAT")){
+   			JOptionPane.showMessageDialog(null, "El perdedor es el jugador 4", "PERDEDOR", JOptionPane.INFORMATION_MESSAGE);
+   		}
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		 return ;
@@ -304,12 +314,15 @@ public class frmPrincipal extends JFrame {
 				 labelImagen.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Flecha5.png") ));	
 		  		 indiceImagen++;
 		 		 contadorFuerza++;
-		   		 System.out.println("LA fuerza es: " +contadorFuerza);
+		   		
    		 if (fuerza==contadorFuerza) {
    			contJugador5++;
    			contadorFuerza= reinicioContadorFuerza;
 
    		   txtJugador5.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador5, palabra));
+   		if (txtJugador5.getText().equals("BLACK_CAT")){
+   			JOptionPane.showMessageDialog(null, "El ganador es el jugador 5", "PERDEDOR", JOptionPane.INFORMATION_MESSAGE);
+   		}
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		 return ;
@@ -323,6 +336,9 @@ public class frmPrincipal extends JFrame {
    			contadorFuerza= reinicioContadorFuerza;
    			
    		   txtJugador6.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador6, palabra));
+   		if (txtJugador6.getText().equals("BLACK_CAT")){
+   			JOptionPane.showMessageDialog(null, "El ganador es el jugador 6", "PERDEDOR", JOptionPane.INFORMATION_MESSAGE);
+   		}
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		return ;
@@ -330,12 +346,15 @@ public class frmPrincipal extends JFrame {
 				 labelImagen.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Flecha7.png") ));	
 		  		 indiceImagen++;
 		 		 contadorFuerza++;
-		   		 System.out.println("LA fuerza es: " +contadorFuerza);
+		   		 
    		 if (fuerza==contadorFuerza) {
    			contJugador7++;
    			contadorFuerza= reinicioContadorFuerza;
    	
    		   txtJugador7.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador7, palabra));
+   		if (txtJugador7.getText().equals("BLACK_CAT")){
+   			JOptionPane.showMessageDialog(null, "El ganador es el jugador 7", "PERDEDOR", JOptionPane.INFORMATION_MESSAGE);
+   		}
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		return ;
@@ -343,12 +362,15 @@ public class frmPrincipal extends JFrame {
 				 labelImagen.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Flecha8.png") ));	
 		  		 indiceImagen++;
 		 		 contadorFuerza++;
-		   		 System.out.println("LA fuerza es: " +contadorFuerza);
+
    		 if (fuerza==contadorFuerza) {
    			contJugador8++;
    			contadorFuerza= reinicioContadorFuerza;
 			
 			   txtJugador8.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador8, palabra));
+			   if (txtJugador8.getText().equals("BLACK_CAT")){
+		   			JOptionPane.showMessageDialog(null, "El ganador es el jugador 8", "PERDEDOR", JOptionPane.INFORMATION_MESSAGE);
+		   		}
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		 return ;
@@ -357,13 +379,16 @@ public class frmPrincipal extends JFrame {
 				 labelImagen.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Flecha1.png") ));					
 				 indiceImagen=IndicePrimeraImagen;
 				 contadorFuerza++;
-		   		 System.out.println("LA fuerza es: " +contadorFuerza);
+		   		
    		 if (fuerza==contadorFuerza) {
    			 contJugador1++;
    			
    			contadorFuerza= reinicioContadorFuerza;
    		txtJugador1.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador1, palabra));
-   			;
+   		if (txtJugador1.getText().equals("BLACK_CAT")){
+   			JOptionPane.showMessageDialog(null, "El ganador es el jugador 1", "PERDEDOR", JOptionPane.INFORMATION_MESSAGE);
+   		}
+   			
    		 indiceJugadorALlenar =reinicioContadorFuerza;
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
