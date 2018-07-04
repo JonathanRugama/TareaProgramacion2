@@ -17,60 +17,67 @@ public class PuntuacionJugadores {
 		
 		switch (indiceJugadorALlenar) {
 		case 1:
-			for (int i= 0; i<indicePosicionALlenar; i++) {
+			for (int i= 0; i<indicePosicionALlenar-1; i++) {
 				
 				llenado += String.valueOf(palabra[i]);
+			
 			}
 			
 			return llenado;
 		case 2: 
-      for (int i= 0; i<indicePosicionALlenar; i++) {
+	for (int i= 0; i<indicePosicionALlenar-1; i++) {
 				
 				llenado += String.valueOf(palabra[i]);
+			
 			}
 			return llenado;
 			
 		case 3:
-		      for (int i= 0; i<indicePosicionALlenar; i++) {
-					
-					llenado += String.valueOf(palabra[i]);
-				}
+	for (int i= 0; i<indicePosicionALlenar-1; i++) {
+				
+				llenado += String.valueOf(palabra[i]);
+			
+			}
 			return llenado;
 			
 		case 4:
-		      for (int i= 0; i<indicePosicionALlenar; i++) {
-					
-					llenado += String.valueOf(palabra[i]);
-				}
+	for (int i= 0; i<indicePosicionALlenar-1; i++) {
+				
+				llenado += String.valueOf(palabra[i]);
 			
+			}
 			return llenado;
 			
 		case 5:
-		      for (int i= 0; i<indicePosicionALlenar; i++) {
-					
-					llenado += String.valueOf(palabra[i]);
-				}
+	for (int i= 0; i<indicePosicionALlenar-1; i++) {
+				
+				llenado += String.valueOf(palabra[i]);
+			
+			}
 			return llenado;
 			
 		case 6: 
-		      for (int i= 0; i<indicePosicionALlenar; i++) {
-					
-					llenado += String.valueOf(palabra[i]);
-				}
+	for (int i= 0; i<indicePosicionALlenar-1; i++) {
+				
+				llenado += String.valueOf(palabra[i]);
+			
+			}
 			return llenado;
 		
 		case 7:
-		      for (int i= 0; i<indicePosicionALlenar; i++) {
-					
-					llenado += String.valueOf(palabra[i]);
-				}
+	for (int i= 0; i<indicePosicionALlenar-1; i++) {
+				
+				llenado += String.valueOf(palabra[i]);
+			
+			}
 			return llenado;
 			
 		case 8: 
-		      for (int i= 0; i<indicePosicionALlenar; i++) {
-					
-					llenado += String.valueOf(palabra[i]);
-				}
+	for (int i= 0; i<indicePosicionALlenar-1; i++) {
+				
+				llenado += String.valueOf(palabra[i]);
+			
+			}
 		  	return llenado;
 		default:
 		  	

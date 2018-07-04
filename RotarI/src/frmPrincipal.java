@@ -264,7 +264,7 @@ public class frmPrincipal extends JFrame {
 		   		 contadorFuerza++;
 		   		 System.out.println("LA fuerza es: " +contadorFuerza);
 		   		 if (fuerza==contadorFuerza) {
-		   			indiceJugadorALlenar++;
+
 		         contadorFuerza= reinicioContadorFuerza;
 		         contJugador2++; //posición de la palabra a llenar
 		         
@@ -280,10 +280,10 @@ public class frmPrincipal extends JFrame {
 		 		 contadorFuerza++;
 		   		 System.out.println("LA fuerza es: " +contadorFuerza);
    		 if (fuerza==contadorFuerza) {
-   			indiceJugadorALlenar++;
+            contJugador3++;
    			contadorFuerza= reinicioContadorFuerza;
    			puntuacion.llenadoJugadores(indiceImagen, contJugador3, palabra);
-   		   txtJugador3.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador2, palabra));
+   		   txtJugador3.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador3, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		   		 return ;
@@ -293,10 +293,10 @@ public class frmPrincipal extends JFrame {
 		 		 contadorFuerza++;
 		   		 System.out.println("LA fuerza es: " +contadorFuerza);
    		 if (fuerza==contadorFuerza) {
-   			indiceJugadorALlenar++;
+   		contJugador4++;
    			contadorFuerza= reinicioContadorFuerza;
    			puntuacion.llenadoJugadores(indiceImagen, contJugador4, palabra);
-   		   txtJugador4.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador2, palabra));
+   		   txtJugador4.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador4, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		 return ;
@@ -306,10 +306,10 @@ public class frmPrincipal extends JFrame {
 		 		 contadorFuerza++;
 		   		 System.out.println("LA fuerza es: " +contadorFuerza);
    		 if (fuerza==contadorFuerza) {
-   			indiceJugadorALlenar++;
+   			contJugador5++;
    			contadorFuerza= reinicioContadorFuerza;
    			puntuacion.llenadoJugadores(indiceImagen, contJugador5, palabra);
-   		   txtJugador5.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador2, palabra));
+   		   txtJugador5.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador5, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		 return ;
@@ -319,10 +319,10 @@ public class frmPrincipal extends JFrame {
 		 		 contadorFuerza++;
 		   		 System.out.println("LA fuerza es: " +contadorFuerza);
    		 if (fuerza==contadorFuerza) {
-   			indiceJugadorALlenar++;
+   			contJugador6++;
    			contadorFuerza= reinicioContadorFuerza;
    			puntuacion.llenadoJugadores(indiceImagen, contJugador6, palabra);
-   		   txtJugador6.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador2, palabra));
+   		   txtJugador6.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador6, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		return ;
@@ -332,10 +332,10 @@ public class frmPrincipal extends JFrame {
 		 		 contadorFuerza++;
 		   		 System.out.println("LA fuerza es: " +contadorFuerza);
    		 if (fuerza==contadorFuerza) {
-   			indiceJugadorALlenar++;
+   			contJugador7++;
    			contadorFuerza= reinicioContadorFuerza;
    			puntuacion.llenadoJugadores(indiceImagen, contJugador7, palabra);
-   		   txtJugador7.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador2, palabra));
+   		   txtJugador7.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador7, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		return ;
@@ -345,10 +345,10 @@ public class frmPrincipal extends JFrame {
 		 		 contadorFuerza++;
 		   		 System.out.println("LA fuerza es: " +contadorFuerza);
    		 if (fuerza==contadorFuerza) {
-   			indiceJugadorALlenar++;
+   			contJugador8++;
    			contadorFuerza= reinicioContadorFuerza;
 			puntuacion.llenadoJugadores(indiceImagen, contJugador8, palabra);
-			   txtJugador8.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador2, palabra));
+			   txtJugador8.setText(puntuacion.llenadoJugadores(indiceImagen, contJugador8, palabra));
 	   		 iniciaDetiene_AnimacionImagen(verificacion);
 		   		 }
 		  		 return ;
@@ -359,7 +359,7 @@ public class frmPrincipal extends JFrame {
 				 contadorFuerza++;
 		   		 System.out.println("LA fuerza es: " +contadorFuerza);
    		 if (fuerza==contadorFuerza) {
-   			 indiceJugadorALlenar++;
+   			 contJugador1++;
    			
    			contadorFuerza= reinicioContadorFuerza;
    		
