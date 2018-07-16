@@ -1,24 +1,22 @@
-
 <HTML>
   <HEAD><TITLE>Proyecto Servlets</TITLE></HEAD>
-  <BODY>
+  	  
+  <BODY background="FondoFrame.jpg">
+  
   <P></P>
-  <H2>Introduce tus datos:</H2><BR>
+  <H2>Introduce tus datos:</H2>
     <HR></HR>
 	 <FORM NAME="FORM" METHOD="POST" ACTION="http://localhost:8080/proyectoServlets/capturarDatos">
-	   <TABLE>
-		<TR>
-		  <TD><B>Usuario:</B></TD>
-		  <TD><INPUT TYPE="TEXT" NAME="Usuario" SIZE="20" VALUE=""></TD>
-		</TR>
-		<TR>
-		  <TD><B>Clave:</B></TD>
-		  <TD><INPUT TYPE="TEXT" NAME="Clave" SIZE="20" VALUE=""></TD>
-		</TR>
-	   </TABLE>
+		   <B>Usuario:</B> <INPUT TYPE="TEXT" NAME="Usuario" SIZE="20" VALUE="">
+			<br>
+			<br>
+		  <B>Clave:</B>&nbsp;&nbsp;&nbsp;&nbsp; <INPUT TYPE="PASSWORD" NAME="Clave" SIZE="20" VALUE="">
 	   <P></P>
-	   <INPUT TYPE="SUBMIT" VALUE="Enviar"><INPUT TYPE="RESET" VALUE="Cancelar">
+	   <INPUT TYPE="SUBMIT" VALUE="Aceptar">
+		<INPUT TYPE="RESET" VALUE="Cancelar">
 	   <HR></HR>
+	   <a href="http://localhost:8080/proyectoServlets/formulario.html">Añadir nuevo usuario</a>
          </FORM>
+       <body background="FondoFrame.jpg">
   </BODY>
 </HTML>
