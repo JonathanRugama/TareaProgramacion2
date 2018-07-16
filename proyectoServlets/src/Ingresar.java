@@ -19,13 +19,13 @@ import java.sql.*;
  */
 public class Ingresar extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
-    private String nombre_bd="";
-    private static Connection conexion  = null;
-    private String usuarioBD;
-    private String passwordBD;
-    private String controlador="";
-    
+		private static final long serialVersionUID = 1L;
+	    private String nombre_bd="";
+	    private static Connection conexion  = null;
+	    private String usuarioBD;
+	    private String passwordBD;
+	    private String controlador="";
+	    
 	/* (non-Javadoc)
 	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 * Método que añade un nuevo usuario y contraseña a la tabla

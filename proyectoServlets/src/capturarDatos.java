@@ -1,9 +1,10 @@
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
+
 import java.sql.*;
+
 
 /**
  * @author Elier CoBa
@@ -19,6 +20,7 @@ public class capturarDatos extends HttpServlet {
     private String usuarioBD;
     private String passwordBD;
     private String controlador="";
+ 
     
 	/* (non-Javadoc)
 	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest pregunta, javax.servlet.http.HttpServletResponse responde)
@@ -38,7 +40,7 @@ public class capturarDatos extends HttpServlet {
 	            Class.forName(controlador);
 	            conexion=DriverManager.getConnection("jdbc:ucanaccess://"+ nombre_bd, usuarioBD, passwordBD);
 	            Statement stmt = conexion.createStatement();
-	            String query = "select * from usuarios where usuario='"+usuario+"' and clave='"+clave+"';";
+	            String query = "SELECT * FROM usuarios WHERE usuario='"+usuario+"' AND clave='"+clave+"';";
 	            System.err.println(query);
 	            ResultSet rs = stmt.executeQuery(query);
 	            
@@ -49,39 +51,74 @@ public class capturarDatos extends HttpServlet {
 	  	          pw.close();
 	  	          return;
 	  	       } 
+	             pw.println( "<html>  \n" +
+        		"<head>  \n" +
+        		"<TITLE>Tabla Usuarios.</TITLE>  \n" +
+        		"</head>  \n" +
+        		"\n" +
+        		"<body>  \n" +
+        		"<div align='center'>  \n" +
+                 "<H2> Tabla de Usuarios:<H2 \n"+
+        		 
+                 "<br> \n" +
+                 getTable()+
+        		"</div>  \n" +
+        		"</body>  \n" +
+        		"\n" +
+        		"</html> ");
+	           
+	          
+	            		          
 	            
-	            pw.println("<HTML><HEAD><TITLE>Tabla de usuarios</TITLE></HEAD>");
-	            pw.println("<BODY>");
-	            pw.println("<H2>Tabla usuario</H2>");
-        		pw.println(" <table border=1 cellspacing=0 cellpadding=2 bordercolor='black'>");
-        		pw.println(" <tr>");
-        		pw.println("<td>usuario</td>");
-        		pw.println("<td>contrasena</td>");
-        		pw.println("</tr>");
-        		pw.println("<tr>");
-        		
-	            while (rs.next())
-	            {
-	            	pw.println("<td>");
-	        		pw.println(rs.getString("Usuario"));
-	            	pw.println("</td>");
-	            	pw.println("<td>");
-	        		pw.println(rs.getString("Clave"));
-	            	pw.println("</td>");
-
-	            }
-	            pw.println("</tr>");
-        		pw.println("</table>");
-        		pw.println("<br><a href=http://localhost:8080/proyectoServlets/> Regresar </a>");
-        		pw.println("</BODY></HTML>");
+	           
 	         } catch (Exception e) {
 	             e.printStackTrace();
 	             System.out.println("Error de seguimiento en getConnection() : " + e.getMessage());
 	         }
 
 		pw.close();
+		return;
 	}
 	
+	 /**
+	 * Método usado para cargar los datos de la tabla
+	 * de la base de datos a la página html
+	 */
+	private String getTable()
+	   {
+	      Statement statement;
+	      ResultSet rs;
+	      int cont = 0;
+	      String str = "";
+	      try {
+	    	
+	         String query = "SELECT clave, usuario from usuarios;";
+	         System.out.println("SELECT clave, usuario from usuarios");
+	         statement = conexion.createStatement();
+	         rs = statement.executeQuery(query );
+	          str = "<br> <table align= 'center' border=1><tr><th>Clave</th><th>Usuarios</th></tr>";
+	         
+	         while (rs.next()) {
+	    		  cont++;
+	    			str += "<tr><td>" +rs.getString(1)+"</td><td>" +rs.getString(2);
+	    	  }
+	         
+	         System.out.println("Número de datos ingresados: " + cont);
+	        
+	     
+	         str+="</table>" 
+	         + "\n <br> <a  href=http://localhost:8080/proyectoServlets/index.html>Regresar</a> \n";
+	        
+	         
+	      }
+	      catch ( SQLException sqlex ) {
+	         sqlex.printStackTrace();
+	      }
+		return str;
+	   }
+	
+
+
     /**
      * @return conexion
      * Método que hace la conexion con la 
@@ -91,3 +128,4 @@ public class capturarDatos extends HttpServlet {
         return conexion;
     }
 } 
+ 
